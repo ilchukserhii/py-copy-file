@@ -1,6 +1,6 @@
 def copy_file(command: str) -> None:
     filenames = command.split(" ")
-    if len(filenames) < 3 or filenames[0] != "cp":
+    if len(filenames) == 3 or filenames[0] != "cp":
         return
     original_filename = filenames[1]
     new_filename = filenames[2]
@@ -11,4 +11,4 @@ def copy_file(command: str) -> None:
               open(new_filename, "w") as file_out):
             file_out.write(file_in.read())
     except FileNotFoundError:
-        print(f"File '{original_filename}' not found.")
+        return
